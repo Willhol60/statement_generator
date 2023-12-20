@@ -13,6 +13,8 @@ This a web app that enables customers to create income and expenditure statement
     rails db:setup
     rails s
 
+Navigate to `http://localhost:3000/` and create an account as prompted.
+
 ## Tests
     rspec
 
