@@ -1,0 +1,46 @@
+<h2><%= @statement.name %></h2>
+  <h4>Incomes</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Amount</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @incomes.each do |income| %>
+        <tr>
+          <td><%= income.name %></td>
+          <td>£<%= income.amount_pennies / 100 %></td>
+          <td><%= button_to 'Delete', income, method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <h4>Expenditures</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Amount</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @expenditures.each do |expenditure| %>
+        <tr>
+          <td><%= expenditure.name %></td>
+          <td>£<%= expenditure.amount_pennies / 100 %></td>
+          <td><%= button_to 'Delete', expenditure, method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <hr class="my-4">
+    <p><%= link_to 'Back', statements_path %></p>
+  </div>

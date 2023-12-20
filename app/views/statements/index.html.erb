@@ -1,0 +1,31 @@
+<% if @statements.empty? %>
+  <p>You don't have any statements yet!</p>
+  <p class="p-3"><%= link_to 'Create your first Statement', new_statement_path %></p>
+<% else %>
+  <h2>Your statements</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Disposable income</th>
+        <th>I&E rating</th>
+        <th>Grade</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @statements.each do |statement| %>
+        <tr>
+          <td><%= statement.name %></td>
+          <td>£<%= statement.disposable_income / 100 %></td>
+          <td><%= statement.rating %></td>
+          <td><%= statement.grade %></td>
+          <td><%= button_to 'Show', statement, method: :get %>
+          <%= button_to 'Delete', statement, method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}} %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <p class="p-3"><%= link_to 'New Statement', new_statement_path %></p>
+<% end %>

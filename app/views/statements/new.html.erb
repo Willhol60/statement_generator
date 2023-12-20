@@ -1,0 +1,46 @@
+<%= form_for @statement do |form| %>
+  <div class="my-3 g-3">
+    <%= form.label :name, style: "display: block", class: "form-label" %>
+    <%= form.text_field :name, placeholder: "January", class: "form-control", required: true %>
+  </div>
+  
+  <hr class="my-4">
+  <div class="row g-3">
+    <h4>Income</h4>
+    <%= form.fields_for :incomes do |income_form| %>
+      <div style= "display: flex">
+        <div id='fields' style= "display: flex">
+          <div class="col-sm-6 p-1"> 
+            <%= income_form.text_field :name, placeholder: "Type", class: "form-control" %>
+          </div>
+          <div class="col-sm-6 p-1"> 
+            <%= income_form.number_field :amount_pennies, placeholder: "Amount", class: "form-control"  %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  
+  <hr class="my-4">
+  <div class="row g-3">
+    <h4>Expenditures</h4>
+    <%= form.fields_for :expenditures do |expenditure_form| %>
+      <div style= "display: flex">
+        <div id='fields' style= "display: flex">
+          <div class="col-sm-6 p-1"> 
+            <%= expenditure_form.text_field :name, placeholder: "Type", class: "form-control" %>
+          </div>
+          <div class="col-sm-6 p-1"> 
+            <%= expenditure_form.number_field :amount_pennies, placeholder: "Amount", class: "form-control"  %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>  
+  </div>
+
+  <hr class="my-4">
+    <p><%= form.submit class: "w-100 btn-lg" %></p>
+    <p><%= link_to 'Back', statements_path %></p>
+  </div>
+<% end %>
