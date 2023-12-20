@@ -8,7 +8,7 @@ This a web app that enables customers to create income and expenditure statement
 
 ## Installation
     git clone git@github.com:willhol60/statement_generator.git
-    cd statementgenerator
+    cd statement_generator
     bundle
     rails db:setup
     rails s
